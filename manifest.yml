@@ -1,0 +1,4 @@
+---
+applications:
+- name: smashing-stations
+  command: npm start
