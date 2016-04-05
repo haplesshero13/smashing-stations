@@ -9,6 +9,8 @@
   "dependencies": {
     "express": "4.x",
     "jade": "^1.11.0",
+    "node-sass": "^3.4.2",
+    "node-sass-middleware": "^0.9.8",
     "request": "^2.69.0"
   },
   "engines": {

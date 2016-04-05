@@ -8,7 +8,7 @@ app.service('bracketService', function($http) {
   }
 });
 
-app.controller('bracketController', ['$scope', 'bracketService', function($scope, bracketService) {
+app.controller('bracketController', ['$scope', '$interval', 'bracketService', function($scope, $interval, bracketService) {
   var sets = function(setups, queuedSets, startedSets) {
     return setups.map(function(setup) {
       setup.queuedSets = queuedSets.filter(function(set){
@@ -26,7 +26,7 @@ app.controller('bracketController', ['$scope', 'bracketService', function($scope
     return entrant ? entrant.name : 'bye';
   };
 
-  $scope.$watch('bracketID', function () {
+  var updateBracket = function() {
     bracketService.getBracket($scope.bracketID).then(function(response){
       var entities = response.data.entities;
       var queuedSets = entities.sets.filter(function(set) {
@@ -42,5 +42,9 @@ app.controller('bracketController', ['$scope', 'bracketService', function($scope
       $scope.streams = sets(streams, queuedSets, startedSets);
       $scope.stations = sets(stations, queuedSets, startedSets);
     });
-  });
+  };
+
+  $interval(updateBracket, 5000);
+
+  $scope.$watch('bracketID', updateBracket);
 }]);

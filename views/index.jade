@@ -1,26 +1,28 @@
 extends layout
 
 block body
-  div(ng-controller='bracketController', ng-init="bracketID= #{bracketID}")
-    h2 Streams
-    .stream(ng-repeat="stream in streams")
-      h3 {{stream.streamName}}
-      h4 Currently playing:
-      .started-set(ng-repeat="set in stream.startedSets")
-        .round-text {{set.fullRoundText}}
-        .players {{playerName(set.entrant1Id)}} vs {{playerName(set.entrant2Id)}}
-      h4 Queued up:
-      .queued-set(ng-repeat="set in stream.queuedSets")
-        .round-text {{set.fullRoundText}}
-        .players {{playerName(set.entrant1Id)}} vs {{playerName(set.entrant2Id)}}
-    h2 Stations
-    .station(ng-repeat="station in stations")
-      h3 Station {{station.identifier}}
-      h4 Currently playing:
-      .started-set(ng-repeat="set in station.startedSets")
-        .round-text {{set.fullRoundText}}
-        .players {{playerName(set.entrant1Id)}} vs {{playerName(set.entrant2Id)}}
-      h4 Queued up:
-      .queued-set(ng-repeat="set in station.queuedSets")
-        .round-text {{set.fullRoundText}}
-        .players {{playerName(set.entrant1Id)}} vs {{playerName(set.entrant2Id)}}
+  .container(ng-controller='bracketController', ng-init="bracketID= #{bracketID}")
+    h1 Streams
+    .stream-container.container
+      .station(ng-repeat="stream in streams")
+        h2 {{stream.streamName}}
+        h4 Currently playing:
+        .started-set(ng-repeat="set in stream.startedSets")
+          .round-text {{set.fullRoundText}}
+          .players {{playerName(set.entrant1Id)}} vs {{playerName(set.entrant2Id)}}
+        h4 Queued up:
+        .queued-set(ng-repeat="set in stream.queuedSets")
+          .round-text {{set.fullRoundText}}
+          .players {{playerName(set.entrant1Id)}} vs {{playerName(set.entrant2Id)}}
+    h1 Stations
+    .station-container.container
+      .station(ng-repeat="station in stations")
+        h2 Station {{station.identifier}}
+        h4 Currently playing:
+        .started-set(ng-repeat="set in station.startedSets")
+          .round-text {{set.fullRoundText}}
+          .players {{playerName(set.entrant1Id)}} vs {{playerName(set.entrant2Id)}}
+        h4 Queued up:
+        .queued-set(ng-repeat="set in station.queuedSets")
+          .round-text {{set.fullRoundText}}
+          .players {{playerName(set.entrant1Id)}} vs {{playerName(set.entrant2Id)}}

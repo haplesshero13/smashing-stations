@@ -1,0 +1,61 @@
+$color-primary-0: #FFB558;	// Main Primary color */
+$color-primary-1: #FFFAF3;
+$color-primary-2: #FFD29A;
+$color-primary-3: #FF9919;
+$color-primary-4: #FF8E00;
+
+$color-complement-0: #5DB7F2;	// Main Complement color */
+$color-complement-1: #F3FAFE;
+$color-complement-2: #9AD1F5;
+$color-complement-3: #24A1F2;
+$color-complement-4: #0292EF;
+
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default;
+$gray-dark:              lighten($gray-base, 20%) !default;
+$gray:                   lighten($gray-base, 33.5%) !default;
+$gray-light:             lighten($gray-base, 46.7%) !default;
+$gray-lighter:           lighten($gray-base, 93.5%) !default;
+$gray-lightest:           lighten($gray-base, 95%) !default;
+
+body {
+  color: #303030;
+  background-color: $gray-lightest;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.station {
+  border: 2px solid $gray-light;
+  background-color: white;
+  padding: 5px;
+  height: 33%;
+  width: 150px;
+  margin: 20px;
+}
+
+.queued-set {
+  margin: 1px;
+  padding: 3px;
+  border: 1px solid $color-complement-0;
+  background-color: $color-complement-1;
+}
+
+.started-set {
+  margin: 3px;
+  padding: 3px;
+  border: 1px solid $color-primary-0;
+  background-color: $color-primary-1;
+}

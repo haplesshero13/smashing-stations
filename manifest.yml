@@ -2,3 +2,5 @@
 applications:
 - name: smashing-stations
   command: npm start
+  instances: 2
+  memory: 128M

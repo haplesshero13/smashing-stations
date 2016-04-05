@@ -3,6 +3,8 @@
 ## Running the App
 Download Node 5.9.x or newer: https://nodejs.org
 
+Grab bower: `npm install -g bower`.
+
 Install packages: `npm install` then `bower install`.
 
 Start the app: `npm start`.

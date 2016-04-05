@@ -1,10 +1,19 @@
 var express = require('express');
 var request = require('request');
+var sass    = require('node-sass-middleware');
 var app = express();
 
 app.set('view engine', 'jade');
-app.use(express.static(__dirname + '/public'));
+app.use(
+  sass({
+     src: __dirname + '/stylesheets',
+     dest: __dirname + '/public/stylesheets',
+     prefix:  '/stylesheets',
+     debug: true,
+   })
+);
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/:id', function (req, res) {
   res.render('index', { title: 'Smashing Stations', bracketID: req.params.id });
