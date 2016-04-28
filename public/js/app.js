@@ -29,14 +29,14 @@ app.controller('bracketController', ['$scope', '$interval', 'bracketService', fu
   var updateBracket = function() {
     bracketService.getBracket($scope.bracketID).then(function(response){
       var entities = response.data.entities;
-      var queuedSets = entities.sets.filter(function(set) {
+      var queuedSets = entities.sets ? entities.sets.filter(function(set) {
         return set.state === 1;
-      });
-      var startedSets = entities.sets.filter(function(set) {
+      }) : [];
+      var startedSets = entities.sets ? entities.sets.filter(function(set) {
         return set.state === 2;
-      });
-      var streams = entities.stream;
-      var stations = entities.station;
+      }) : [];
+      var streams = entities.stream || [];
+      var stations = entities.station || [];
 
       $scope.entrants = entities.entrants;
       $scope.streams = sets(streams, queuedSets, startedSets);
